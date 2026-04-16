@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fundraisers</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Loader -->
+<div id="loader">
+  <div class="spinner"></div>
+</div>
+
+<div class="container">
+
+  <h1>💰 Fundraisers</h1>
+  <p class="subtitle">Support Food Donation Campaigns</p>
+
+  <!-- Create Fundraiser -->
+  <div class="card">
+    <h2>Create Campaign</h2>
+
+    <input id="title" placeholder="Campaign Title">
+    <input id="goal" placeholder="Goal Amount (₹)">
+    <input id="desc" placeholder="Description">
+
+    <button onclick="createFund()">Create</button>
+  </div>
+
+  <!-- Campaign List -->
+  <div class="card">
+    <h2>Active Campaigns</h2>
+    <ul id="fundList"></ul>
+  </div>
+
+  <!-- Back Button -->
+  <a href="index.html">
+    <button>⬅ Back</button>
+  </a>
+
+</div>
+
+<script>
+window.onload = () => {
+  document.getElementById("loader").style.display = "none";
+};
+
+// Create fundraiser
+async function createFund() {
+  const title = document.getElementById("title").value;
+  const goal = document.getElementById("goal").value;
+  const description = document.getElementById("desc").value;
+
+  if (!title || !goal) {
+    alert("Please fill all fields");
+    return;
+  }
+
+  await fetch("/fundraiser", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({ title, goal, description })
+  });
+
+  loadFunds();
+}
+
+// Load fundraisers
+async function loadFunds() {
+  const res = await fetch("/fundraisers");
+  const data = await res.json();
+
+  const list = document.getElementById("fundList");
+  list.innerHTML = "";
+
+  data.forEach(f => {
+    const percent = Math.min(
+      100,
+      Math.floor((f.raised / f.goal) * 100 || 0)
+    );
+
+    list.innerHTML += `
+      <li>
+        <strong>${f.title}</strong><br>
+        ₹${f.raised} / ₹${f.goal}<br>
+        <small>${f.description || ""}</small>
+
+        <!-- Progress Bar -->
+        <div style="background:#333;border-radius:10px;margin-top:8px;">
+          <div style="
+            width:${percent}%;
+            background:linear-gradient(45deg,#ff2e63,#ff6a00);
+            height:8px;
+            border-radius:10px;
+            transition:0.5s;">
+          </div>
+        </div>
+
+        <button onclick="donate()">Donate ❤️</button>
+      </li>
+    `;
+  });
+}
+
+// Fake donate (demo)
+function donate() {
+  alert("Thank you for your support ❤️ (Demo Mode)");
+}
+
+loadFunds();
+</script>
+
+</body>
+</html>
