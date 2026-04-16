@@ -67,6 +67,12 @@ npm install express
 node server.js
 Open browser:
 http://localhost:3000
+
+```
+
+---
+
+
 🌍 Live Demo (GitHub Pages)
 
 👉 https://rajwant-raj.github.io/foodshare/
@@ -91,6 +97,10 @@ Uses location to find nearby NGOs with images, descriptions, and links.
 
 Provides assistance with typing animation and smart responses.
 
+
+---
+
+
 ⚠️ Limitations
 
 Uses JSON instead of database
@@ -100,6 +110,9 @@ Basic authentication system
 Backend not supported on GitHub Pages
 
 AI detection may not be 100% accurate
+
+
+---
 
 
 🚀 Future Enhancements
@@ -117,6 +130,10 @@ Mobile app version
 Deploy full-stack (backend + frontend)
 
 
+---
+
+
+
 🧠 Learning Outcomes
 
 Full-stack web development
@@ -130,7 +147,9 @@ UI/UX design principles
 Debugging and deployment
 
 
+---
 
+---
 📌 Author
 
 👤 Rajwant Raj
@@ -138,10 +157,7 @@ Debugging and deployment
 🎓 CSE Student
 
 
-
-💡 Inspiration
-
-This project aims to bridge the gap between food wastage and hunger using technology.
+----
 
 
 ⭐ Support
