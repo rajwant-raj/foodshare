@@ -50,8 +50,8 @@ FoodShare/
 ### 🏠 Home Page
 ![Home](images/home.png)
 
-### 📊 Dashboard
-![Dashboard](images/light_theme.png)
+### 📊 Light Theme 
+![LightTheme](images/light_theme.png)
 
 
 
