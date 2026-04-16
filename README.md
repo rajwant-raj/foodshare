@@ -29,6 +29,8 @@ FoodShare is a modern web-based platform designed to reduce food wastage by conn
 ---
 
 ## 📂 Project Structure
+
+```
 FoodShare/
 │
 ├── index.html
@@ -42,6 +44,7 @@ FoodShare/
 ├── data.json
 └── README.md
 
+```
 
 ---
 
