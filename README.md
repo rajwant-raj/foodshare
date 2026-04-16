@@ -65,10 +65,12 @@ FoodShare/
 ```bash
 npm install express
 node server.js
+
+```
 Open browser:
 http://localhost:3000
 
-```
+
 
 ---
 
