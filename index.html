@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FoodShare</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet"></script>
+</head>
+<body>
+
+<div id="loader"><div class="spinner"></div></div>
+<button onclick="toggleTheme()" id="themeBtn">
+  🌙
+</button>
+<div class="container">
+    
+  <h1>🍱 FoodShare</h1>
+  <p class="subtitle">Delivering Kindness, One Meal at a Time</p>
+
+<div class="card">
+  <h2>Donate Food</h2>
+
+  <!-- Food Dropdown -->
+  <select id="foodSelect" onchange="toggleCustomFood()">
+    <option value="">Select Food Item</option>
+    <option value="Rajma-chawal">Rajma Chawal</option>
+    <option value="Dal">Dal</option>
+    <option value="veg-biryani">Veg Biryani</option>
+    <option value="chicken-biryani">Chicken Biryani</option>
+    <option value="Rice">Rice</option>
+    <option value="Chapati">Chapati</option>
+    <option value="Vegetables">Vegetables</option>
+    <option value="Pizza">Pizza</option>
+    <option value="Burger">Burger</option>
+    <option value="Sweets">Sweets</option>
+    <option value="Other">Other</option>
+  </select>
+
+  <!-- Custom Input -->
+  <input id="customFood" placeholder="Enter food item" style="display:none;">
+
+  <!-- 📸 CAMERA BUTTON -->
+  <button onclick="openCamera()">📸 Use Camera</button>
+
+  <!-- Camera Video -->
+  <video id="video" autoplay style="display:none; width:100%; margin-top:10px; border-radius:10px;"></video>
+
+  <!-- Capture Button -->
+  <button id="captureBtn" onclick="captureImage()" style="display:none;">
+    Capture
+  </button>
+
+  <!-- Hidden Canvas -->
+  <canvas id="canvas" style="display:none;"></canvas>
+
+  <!-- Image Upload -->
+  <input type="file" id="image" accept="image/*">
+
+  <!-- Image Preview -->
+  <img id="preview" 
+       style="width:100%; margin-top:10px; display:none; border-radius:10px;">
+
+  <!-- Quantity -->
+  <input id="quantity" type="number" placeholder="Enter quantity">
+
+  <!-- Unit -->
+  <select id="unit">
+    <option value="">Select Unit</option>
+    <option value="kg">Kilograms (kg)</option>
+    <option value="g">Grams (g)</option>
+    <option value="half">Half</option>
+    <option value="full">Full</option>
+    <option value="quaters">Quaters</option>
+    <option value="plates">Plates</option>
+    <option value="packets">Packets</option>
+    <option value="boxes">Boxes</option>
+  </select>
+
+  <!-- Donate Button -->
+  <button onclick="donate()">Donate</button>
+</div>
+
+  <div class="card">
+    <h2>Donations</h2>
+    <div id="list" class="dashboard-grid"></div>
+  </div>
+
+<div class="card">
+  <h2>📍 NGOs</h2>
+
+  <!-- ✅ BUTTON HERE -->
+  <button onclick="findNearbyNGOs()">📍 Find Nearby NGOs</button>
+
+  <ul id="ngoList"></ul>
+</div>
+
+  <a href="fundraiser.html"><button>💰 Fundraisers</button></a>
+  <a href="login.html"><button>🔐 NGO Login</button></a>
+</div>
+
+<script src="script.js"></script>
+<!-- 🤖 CHAT BUTTON -->
+<div id="chatBtn" onclick="toggleChat()">💬</div>
+
+<!-- 💬 CHAT BOX -->
+<div id="chatBox">
+  <div class="chat-header">
+    🤖 FoodShare AI
+    <span onclick="toggleChat()">✖</span>
+  </div>
+
+  <div id="chatMessages"></div>
+
+  <div class="chat-input">
+    <input id="chatInput" placeholder="Ask something...">
+    <button onclick="sendMessage()">➤</button>
+  </div>
+</div>
+</body>
+</html>
