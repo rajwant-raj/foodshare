@@ -82,7 +82,11 @@ http://localhost:3000
 ⚠️ Note:
 GitHub Pages supports only frontend. Backend features like saving donations will not work.
 
-##📍 Key Modules
+
+---
+
+
+## 📍 Key Modules
 
 🍱 Donation System
 
